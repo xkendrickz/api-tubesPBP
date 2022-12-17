@@ -23,8 +23,8 @@ Route::put('obat/{id}', 'Api\ObatController@update');
 Route::delete('obat/{id}', 'Api\ObatController@destroy');
 
 Route::get('User', 'Api\UserController@index');
-Route::get('User/{id}', 'Api\UserController@show');
-Route::put('User/{id}', 'Api\UserController@update');
+Route::get('User/{username}', 'Api\UserController@show');
+Route::put('User/{username}', 'Api\UserController@update');
 Route::delete('User/{id}', 'Api\UserController@destroy');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

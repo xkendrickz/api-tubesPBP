@@ -28,9 +28,9 @@ class UserController extends Controller
         ], 400); //return message data course kosong
     }
 
-    public function show($id) //method search atau menampilkan sebuah data product
+    public function show($username) //method search atau menampilkan sebuah data product
     {
-        $user = User::find($id); //mencari data product berdasarkan id
+        $user = User::where('username',$username)->get(); //mencari data product berdasarkan id
 
         if(!is_null($user)){
             return response([
@@ -45,9 +45,9 @@ class UserController extends Controller
         ], 404);
     }
 
-    public function update(Request $request, $id) //method update atau mengubah sebuah data product
+    public function update(Request $request, $username) //method update atau mengubah sebuah data product
     {
-        $user = User::find($id);
+        $user = User::where('username',$username)->first();
         if(is_null($user)){
             return response([
                 'message' => 'User Not Found',
@@ -58,7 +58,6 @@ class UserController extends Controller
         $updateData = $request->all();
         $validate = Validator::make($updateData, [
             'username' => 'required',
-            'password' => 'required',
             'email' => 'required|unique:users',
             'tgglLahir' => 'required',
             'telepon' => 'required',
@@ -67,9 +66,7 @@ class UserController extends Controller
         if($validate->fails())
             return response(['message' => $validate->errors()], 400);
 
-        $updateData['password'] = bcrypt($request->password);
         $user->username = $updateData['username'];
-		$user->password = $updateData['password'];
         $user->email = $updateData['email'];
 		$user->tgglLahir = $updateData['tgglLahir'];
 		$user->telepon = $updateData['telepon'];
