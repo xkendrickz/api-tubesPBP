@@ -22,10 +22,13 @@ Route::post('obat', 'Api\ObatController@store');
 Route::put('obat/{id}', 'Api\ObatController@update');
 Route::delete('obat/{id}', 'Api\ObatController@destroy');
 
-Route::get('User', 'Api\UserController@index');
 Route::get('User/{username}', 'Api\UserController@show');
 Route::put('User/{username}', 'Api\UserController@update');
-Route::delete('User/{id}', 'Api\UserController@destroy');
+
+Route::get('obat', 'Api\ObatController@index');
+Route::post('obat', 'Api\ObatController@store');
+Route::delete('obat/{id}', 'Api\ObatController@destroy');
+Route::delete('obat', 'Api\ObatController@destroyAll');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

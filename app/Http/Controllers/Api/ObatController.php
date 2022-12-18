@@ -21,7 +21,7 @@ class ObatController extends Controller
     {
         $obats = Obat::all();
 
-        if(count($Obats) > 0){
+        if(count($obats) > 0){
             return response([
                 'message' => 'Retrieve All Success',
                 'data' => $obats
