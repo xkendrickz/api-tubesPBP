@@ -18,7 +18,7 @@ class AuthController extends Controller
         $validate = Validator::make($registrationData, [
             'username' => 'required',
             'password' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required',
             'tgglLahir' => 'required',
             'telepon' => 'required',
 

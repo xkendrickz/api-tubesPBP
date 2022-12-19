@@ -77,7 +77,7 @@ class ObatController extends Controller
      */
     public function show($id) //method search atau menampilkan sebuah data Obat
     {
-        $Obat = Obat::find($id); //mencari data Obat berdasarkan id
+        $Obat = Obat::where('id',$id)->get(); //mencari data Obat berdasarkan id
 
         if(!is_null($Obat)){
             return response([

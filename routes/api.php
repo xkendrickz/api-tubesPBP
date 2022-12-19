@@ -25,10 +25,10 @@ Route::delete('obat/{id}', 'Api\ObatController@destroy');
 Route::get('User/{username}', 'Api\UserController@show');
 Route::put('User/{username}', 'Api\UserController@update');
 
-Route::get('obat', 'Api\ObatController@index');
-Route::post('obat', 'Api\ObatController@store');
-Route::delete('obat/{id}', 'Api\ObatController@destroy');
-Route::delete('obat', 'Api\ObatController@destroyAll');
+Route::get('transaksi', 'Api\TransaksiController@index');
+Route::post('transaksi', 'Api\TransaksiController@store');
+Route::delete('transaksi/{id}', 'Api\TransaksiController@destroy');
+Route::delete('transaksi', 'Api\TransaksiController@destroyAll');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
