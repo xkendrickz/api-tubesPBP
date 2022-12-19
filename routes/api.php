@@ -30,6 +30,12 @@ Route::post('transaksi', 'Api\TransaksiController@store');
 Route::delete('transaksi/{id}', 'Api\TransaksiController@destroy');
 Route::delete('transaksi', 'Api\TransaksiController@destroyAll');
 
+Route::get('kontrasepsi', 'Api\KontrasepsiController@index');
+Route::get('kontrasepsi/{id}', 'Api\KontrasepsiController@show');
+Route::post('kontrasepsi', 'Api\KontrasepsiController@store');
+Route::put('kontrasepsi/{id}', 'Api\KontrasepsiController@update');
+Route::delete('kontrasepsi/{id}', 'Api\KontrasepsiController@destroy');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
