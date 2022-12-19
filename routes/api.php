@@ -30,6 +30,12 @@ Route::post('transaksi', 'Api\TransaksiController@store');
 Route::delete('transaksi/{id}', 'Api\TransaksiController@destroy');
 Route::delete('transaksi', 'Api\TransaksiController@destroyAll');
 
+Route::get('suplemen', 'Api\SuplemenController@index');
+Route::get('suplemen/{id}', 'Api\SuplemenController@show');
+Route::post('suplemen', 'Api\SuplemenController@store');
+Route::put('suplemen/{id}', 'Api\SuplemenController@update');
+Route::delete('suplemen/{id}', 'Api\SuplemenController@destroy');
+
 Route::get('kontrasepsi', 'Api\KontrasepsiController@index');
 Route::get('kontrasepsi/{id}', 'Api\KontrasepsiController@show');
 Route::post('kontrasepsi', 'Api\KontrasepsiController@store');
